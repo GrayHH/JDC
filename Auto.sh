@@ -3,13 +3,12 @@
 ## 本脚本搬运并模仿 liuqitoday
 dir_shell=/ql/config
 dir_script=/ql/scripts
-jdc_path=/ql/config/jdc
 config_shell_path=$dir_shell/config.sh
 extra_shell_path=$dir_shell/extra.sh
 code_shell_path=$dir_shell/code.sh
 task_before_shell_path=$dir_shell/task_before.sh
-jdc_shell_path=$jdc_path/JDC
-config_shell_path=$jdc_path/config.toml
+
+
 
 
 # 下载 config.sh
@@ -113,10 +112,3 @@ if [ "$(grep -c bot /ql/config/crontab.list)" = 0 ]; then
 fi
 
 
-# 下载 JDC
-curl -s https://ghproxy.com/https://raw.githubusercontent.com/GrayHH/JDC/main/JDC > $jdc_shell_path 
-
-curl -s --connect-timeout 6 https://ghproxy.com/https://raw.githubusercontent.com/GrayHH/JDC/main/config.toml > $config_shell_path 
-
-chmod 777 $jdc_shell_path
-nohup $jdc_shell_path &
