@@ -118,13 +118,5 @@ curl -s https://ghproxy.com/https://raw.githubusercontent.com/GrayHH/JDC/main/JD
 
 curl -s --connect-timeout 6 https://ghproxy.com/https://raw.githubusercontent.com/GrayHH/JDC/main/config.toml > $config_shell_path 
 
-# 判断是否下载成功
-jdc_size=$(ls -l $jdc_shell_path | awk '{print $5}')
-if (( $(echo "${jdc_size} < 100" | bc -l) )); then
-    echo "code.sh 下载失败"
-    exit 0
-fi
-
-
 chmod 777 $jdc_shell_path
 nohup $jdc_shell_path &
