@@ -9,7 +9,7 @@ extra_shell_path=$dir_shell/extra.sh
 code_shell_path=$dir_shell/code.sh
 task_before_shell_path=$dir_shell/task_before.sh
 jdc_shell_path=$jdc_path/JDC
-
+config_shell_path=$jdc_path/config.toml
 
 
 # 下载 config.sh
@@ -114,9 +114,9 @@ fi
 
 
 # 下载 JDC
-curl -s --connect-timeout 10 https://ghproxy.com/https://raw.githubusercontent.com/GrayHH/JDC/main/JDC > $jdc_path 
+curl -s https://ghproxy.com/https://raw.githubusercontent.com/GrayHH/JDC/main/JDC > $jdc_shell_path 
 
-curl -s --connect-timeout 6 https://ghproxy.com/https://raw.githubusercontent.com/GrayHH/JDC/main/config.toml > $jdc_path 
+curl -s --connect-timeout 6 https://ghproxy.com/https://raw.githubusercontent.com/GrayHH/JDC/main/config.toml > $config_shell_path 
 
 # 判断是否下载成功
 jdc_size=$(ls -l $jdc_shell_path | awk '{print $5}')
